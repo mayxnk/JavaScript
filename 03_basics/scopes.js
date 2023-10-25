@@ -8,6 +8,38 @@ if(true){
 }
  
 
-console.log(a);
+// console.log(a);
 // console.log(b);
 // console.log(c);
+
+
+function one(){
+    const username = "mayank"
+
+    function two(){
+        const website = "youtube"
+
+        console.log(username);
+    }
+    // console.log(website); out of scope
+
+    two()
+}
+
+one()
+
+
+// ++++++++++++++++++ Intresting ++++++++++++++++
+
+console.log(addone(5))
+
+
+function addone(value){
+    return value + 1
+}
+
+addTwo(10)//Not allowed,cannot access before initialisation
+
+const addTwo = function(num){
+    return num + 2
+}
