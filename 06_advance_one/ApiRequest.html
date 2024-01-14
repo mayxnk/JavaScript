@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    
+    <div class="card">
+      <img
+        src="https://www.w3schools.com/howto/img_avatar.png"
+        alt="Avatar"
+        id="image"
+      />
+      <div class="container">
+        <h4 id="followers"></h4>
+      </div>
+    </div>
+    <button id="button">Show</button>
+  </body>
+  <script>
+    const requestUrl = "https://api.github.com/users/hiteshchoudhary";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestUrl);
+    xhr.onreadystatechange = function () {
+        //   console.log(xhr.readyState);
+          const data = JSON.parse(this.responseText);
+          document.getElementById("button").addEventListener("click", function () {
+            document.getElementById("image").src = data.avatar_url;
+            document.getElementById('followers').innerHTML = `Followers -> ${data.followers}`
+     });
+          
+      };
+    xhr.send();
+    
+    
+    //console.log(xhr.readyState);
+  </script>
+</html>
